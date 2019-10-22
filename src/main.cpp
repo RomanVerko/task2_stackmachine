@@ -78,7 +78,22 @@ void testStackMachine()
 
 int main()
 {
-    cout << "Hello, World!" << endl;
+
+    xi::StackMachine sm;
+    xi::PlusOp plusop;
+    xi::MinusOp minusop;
+    xi::InverOp inverop;
+    xi::OrOp orop;
+    sm.registerOperation('+', &plusop);
+    sm.registerOperation('-', &minusop);
+    sm.registerOperation('~', &inverop);
+    sm.registerOperation('|', &orop);
+
+    std::cout<<"введите строку";
+    std::string str;
+    std::getline(std::cin,str);
+    int res = sm.calculate(str);
+    std::cout<<res;
 
     testStack();
     testStackMachine();
